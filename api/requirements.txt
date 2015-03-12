@@ -1,5 +1,6 @@
 Django>=1.7
 pytz
 mysqlclient
+djangorestframework
 
 getconf
