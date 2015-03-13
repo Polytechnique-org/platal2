@@ -16,5 +16,4 @@ urlpatterns = [
     url(r'accounts/me/', account.MyAccountView),
     url(r'accounts/(?P<hruid>.+)/', account.AccountView.as_view(), name='account'),
     url(r'photos/(?P<hrpid>.+)/raw/', profile.RawPhotoView.as_view(), name='profile-photo-raw'),
-    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

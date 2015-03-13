@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include('platal.api.urls', namespace='api')),
+    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
 )
