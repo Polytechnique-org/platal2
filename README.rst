@@ -24,7 +24,7 @@ Code layout
 
 * ``api/`` contains the backend project
 * ``ui/`` contains the JS parts
-* ``docs/`` include all parts.
+* ``docs/`` include the documentation, built using Sphinx.
 
 
 Install
