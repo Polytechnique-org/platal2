@@ -22,9 +22,9 @@ The final design should be built around the following components:
 Code layout
 -----------
 
-``api/`` contains the backend project
-``ui/`` contains the JS parts
-``docs/`` include all parts.
+* ``api/`` contains the backend project
+* ``ui/`` contains the JS parts
+* ``docs/`` include all parts.
 
 
 Install
@@ -46,5 +46,5 @@ For the UI:
 License
 -------
 
-The UI is distributed under a yet-to-be-defined license, likely GPLv3
-The API code is distributed under the AGPL license.
+* The UI is distributed under a yet-to-be-defined license, likely GPLv3
+* The API code is distributed under the AGPL license.
