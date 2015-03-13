@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 
@@ -83,3 +84,10 @@ class Account(models.Model):
         if fields == ['last_login']:
             return
         return super(Account, self).save(*args, **kwargs)
+
+    @property
+    def profile(self):
+        try:
+            return self.profile_links.get(perms='owner').profile
+        except ObjectDoesNotExist:
+            return None
