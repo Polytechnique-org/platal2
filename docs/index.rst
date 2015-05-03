@@ -11,11 +11,12 @@ It provides the following features for alumni associations:
 * And much more.
 
 
-Contents:
+**Contents:**
 
 .. toctree::
    :maxdepth: 2
 
+   Introduction <self>
    contributing
    testing
    design/stack
@@ -23,12 +24,3 @@ Contents:
    design/migration
    design/discussions
    changelog
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
