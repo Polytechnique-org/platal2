@@ -31,8 +31,14 @@ import shlex
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx',
+    'sphinx.ext.intersphinx',  # Allow cross-ref to Django/Python/...
+    'sphinx.ext.extlinks',  # Allow :issue:`1234`
 ]
+
+extlinks = {
+    'issue': ('https://github.com/Polytechnique-org/platal2/issues/%s', 'issue #'),
+}
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

@@ -16,7 +16,13 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   design
+   contributing
+   testing
+   design/stack
+   design/api
+   design/migration
+   design/discussions
+   changelog
 
 
 Indices and tables
