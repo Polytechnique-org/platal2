@@ -1,0 +1,207 @@
+@import 'theme';
+
+/* SVG styles */
+
+svg {
+    fill: white;
+    stroke: $col5;
+    stroke-width: 10;
+
+    &:hover {
+        fill: $col5;
+        stroke: $col4;
+    }
+}
+
+/* General styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: $font1;
+}
+
+input {
+    padding: 5px;
+    border-radius: 1px;
+    font-size: 1em;
+
+
+    &:hover,
+    &:focus {
+        background-color: $col5;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $col3;
+
+    &:hover {
+        color: $col1;
+    }
+}
+
+.auth-block {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 1.4em;
+    }
+}
+
+/* Universal classes */
+
+.sheet {
+    margin-top: 10px;
+    padding: 20px;
+    width: 320px;
+    display: flex;
+    flex-direction: column; 
+}
+
+/* Signing form */
+
+from {
+    width: 100%;
+}
+
+.signin-form {
+    input {
+        height: 42px;
+        width: 100%;
+        padding: 0 12px;
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid $col4;
+
+        &:hover, &:focus {
+            background-color: $col5;
+        }
+    }
+
+    #Email {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    #Passwd {
+        margin-top: -1px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    #Submit {
+        margin-top: 32px;
+        margin-bottom: 12px;
+        border-radius: 3px;
+        background-color: $col3;
+        border: none;
+        color: white;
+        font-size: 1.2em;
+    }
+
+    #Submit:hover {
+        background-color: #D92B34;
+    }
+
+    label {
+        display: flex;
+        align-content: center;
+    }
+
+    label span {
+    }
+
+    #KeepConnect {
+        width: initial;
+        height: initial;
+    }
+}
+
+/* header */
+
+.main_header {
+    background-color: #A62139;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    h1 {
+        font-family: $font2;
+        padding: 0;
+        font-size: 2em;
+    }
+
+    input {
+        height: 42px;
+        width: 300px;
+        padding: 0 12px;
+        border-radius: 3px;
+        box-sizing: border-box;
+        border: none;
+    }
+
+}
+
+.big_header {
+    height: 120px;
+    font-size: 1.2em;
+    justify-content: center;
+}
+
+.header_search {
+}
+
+
+logo {
+}
+
+search {
+}
+
+aside {
+    background-color: $col3;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    width: 100px;
+    visibility: hidden;
+}
+
+/*
+footer
+ */
+
+footer {
+    background-color: $col5;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    ul li {
+        display: inline;
+        padding: 0 1.5em 0 0;
+    }
+}
+
+
+
+
+
+
+
+
