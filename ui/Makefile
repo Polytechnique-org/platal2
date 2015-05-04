@@ -1,10 +1,17 @@
-all: scss
+all: scss jsx
 
 scss:
 	scss --sourcemap=none scss/styles.scss styles.css
 
-clean:
-	rm styles.css
-	rm -r .sass-cache*
+jsx: build
+	jsx src/ build/
 
-.PHONY: clean, scss
+build:
+	mkdir build;
+
+clean:
+	-rm -r build
+	-rm styles.css
+	-rm -r .sass-cache*
+
+.PHONY: scss jsx clean
