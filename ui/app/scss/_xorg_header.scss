@@ -1,0 +1,51 @@
+.xorg_header {
+    background-color: $col2;
+    color: $col6;
+
+    padding: 10px;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-family: $font2;
+        padding: 0;
+        margin: 0;
+        font-size: 2em;
+    }
+}
+
+.xorg_header_public {
+    justify-content: center;
+    height: 120px;
+    font-size: 1.2em;
+    text-align: center;
+
+}
+
+.xorg_header_private {
+    justify-content: space-between;
+    height: 50px;
+
+    input {
+        height: 42px;
+        width: 300px;
+        padding: 0 12px;
+        border-radius: 3px;
+        box-sizing: border-box;
+        border: none;
+    }
+aside {
+    background-color: $col3;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    width: 100px;
+    visibility: hidden;
+}
+}
+
+.header_search {
+}

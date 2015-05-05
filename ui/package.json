@@ -1,0 +1,22 @@
+{
+  "name": "platal2-front",
+  "version": "0.0.1",
+  "description": "Plat/Al 2 front-end app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Polytechnique.org dev team",
+  "license": "GPLv3",
+  "devDependencies": {
+    "browserify": "^10.1.0",
+    "clean-css": "^3.2.9",
+    "exorcist": "^0.3.0",
+    "minimize": "^1.4.1",
+    "node-sass": "^3.0.0",
+    "reactify": "^1.1.0",
+    "uglify-js": "^2.4.21"
+  },
+  "dependencies": {
+    "react": "^0.13.2"
+  }
+}
