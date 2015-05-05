@@ -32,11 +32,11 @@ var FicheResume = React.createClass({
 var Content = React.createClass({
     render: function() {
         return (
-                <main>
+                <article className="fiche">
                 <FichePhoto/>
                 <FicheTitle/>
                 <FicheResume/>
-                </main>
+                </article>
                );
     }
 });

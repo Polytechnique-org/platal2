@@ -3,7 +3,7 @@
 /* SVG styles */
 
 svg {
-    fill: white;
+    fill: $col6;
     stroke: $col5;
     stroke-width: 10;
 
@@ -60,6 +60,13 @@ a {
 
 /* Universal classes */
 
+
+.loading {
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-around;
+}
+
 .sheet {
     margin-top: 10px;
     padding: 20px;
@@ -105,7 +112,7 @@ from {
         border-radius: 3px;
         background-color: $col3;
         border: none;
-        color: white;
+        color: $col6;
         font-size: 1.2em;
     }
 
@@ -131,7 +138,7 @@ from {
 
 .main_header {
     background-color: #A62139;
-    color: white;
+    color: $col6;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -187,12 +194,18 @@ footer
  */
 
 footer {
-    background-color: $col5;
     position: absolute;
-    width: 100%;
     bottom: 0;
+    width: 100%;
+    min-height: 8px;
+    background-color: $col5;
+    font-size: 80%;
 
-    ul li {
+    ul {
+        margin: 0.5em 0;
+    }
+
+    li {
         display: inline;
         padding: 0 1.5em 0 0;
     }
