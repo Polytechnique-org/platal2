@@ -15,5 +15,5 @@ var MainFooter = React.createClass({
 
 React.render(
         <MainFooter/>,
-        document.getElementById('MainFooter')
+        document.getElementById('XorgFooter')
         );

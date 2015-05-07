@@ -1,41 +1,37 @@
-var AuthHeadExt = React.createClass({
+var SignInHeader = React.createClass({
     render: function() {
+        if (this.props.isexternal) {
         return (
                 <header>
                 <h2>Authentification à un site externe</h2>
-                <a href="">www.siteexterne.org</a>
+                <a className="friend-site" href="">www.siteexterne.org</a>
                 </header>
                );
+        }
+        return (<header>
+                <h2>Le site des élèves et anciens élèves de l'École polytechnique</h2>
+                <h2>Veuillez vous authentifier</h2>
+                </header>);
     }
 });
 
-var AuthModule = React.createClass({
+var SignInForm = React.createClass({
     render: function() {
         return (
-                <article className="sheet signin-form">
                 <form noValidate>
                 <input id="Email" type="email" spellCheck="false" name="username" placeholder="Identifiant ou e-mail"/>
                 <input id="Passwd" type="password" name="password" placeholder="Mot de passe"/>
                 <input id="Submit" type="submit" name="connexion" value="connexion"/>
+                <section className="signin-misc">
                 <label>
                 <input id="KeepConnect" type="checkbox" name="keep_connect" value="no"/>
                 <span>
                 Rester connecté
                 </span>
                 </label>
+                <a>Aide</a>
+                </section>
                 </form>
-                </article>
-               );
-    }
-});
-
-var AuthBlock = React.createClass({
-    render: function() {
-        return (
-                <article className="auth-block">
-                <AuthHeadExt/>
-                <AuthModule/>
-                </article>
                );
     }
 });
@@ -43,9 +39,10 @@ var AuthBlock = React.createClass({
 var Content = React.createClass({
     render: function() {
         return (
-                <main>
-                <AuthBlock/>
-                </main>
+                <article className="sign-in center-content">
+                <SignInHeader isexternal={false} />
+                <SignInForm/>
+                </article>
                );
     }
 });
@@ -53,5 +50,5 @@ var Content = React.createClass({
 
 React.render(
         <Content/>,
-        document.getElementById('MainContent')
+        document.getElementById('Main')
         );

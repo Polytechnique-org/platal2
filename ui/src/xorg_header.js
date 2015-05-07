@@ -1,7 +1,7 @@
 var MainHeader = React.createClass({
     render: function() {
         return (
-                <div className="main_header">
+                <div className="xorg_header xorg_header_private">
                 <div className="header_logo">
                 <h1>Polytechnique.org</h1>
                 </div>
@@ -29,5 +29,5 @@ var MainHeader = React.createClass({
 
 React.render(
         <MainHeader/>,
-        document.getElementById('MainHeader')
+        document.getElementById('XorgHeader')
         );

@@ -4,23 +4,25 @@
         <title>Polytechnique.org</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="styles.css">
-        <script src="https://fb.me/react-0.13.2.js"></script>
     </head>
+
     <body>
-        <header id="MainHeader">
-            <div class="main_header big_header">
-                <div class="logo">
-                    <h1>Polytechnique.org</h1>
-                </div>
-            </div>
+        <header id="XorgHeader">
+            <article class="xorg_header xorg_header_public">
+                <h1>Polytechnique.org</h1>
+            </article>
         </header>
-        <article id="MainContent">
-            <main>
-            <h1>L'application n'est pas encore chargée</h1>
-            </main>
+
+        <main id="Main">
+        <article class="loading">
+            <h1>Chargement... </h1>
         </article>
-        <footer id="MainFooter"></footer>
+        </main>
+
+        <footer id="XorgFooter"></footer>
+
+        <script src="https://fb.me/react-0.13.2.js"></script>
         <script src="build/login.js"></script>
-        <script src="build/main_footer.js"></script>
+        <script src="build/xorg_footer.js"></script>
     </body>
 </html>

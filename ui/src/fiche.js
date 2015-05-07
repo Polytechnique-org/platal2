@@ -44,5 +44,5 @@ var Content = React.createClass({
 
 React.render(
         <Content/>,
-        document.getElementById('MainContent')
+        document.getElementById('Main')
         );
