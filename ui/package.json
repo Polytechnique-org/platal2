@@ -17,6 +17,7 @@
     "uglify-js": "^2.4.21"
   },
   "dependencies": {
-    "react": "^0.13.2"
+    "react": "^0.13.2",
+    "react-router": "^0.13.3"
   }
 }

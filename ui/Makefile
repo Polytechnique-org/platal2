@@ -16,7 +16,7 @@ CLEANCSS = $(NODE_BINDIR)/cleancss
 # HTML toolchain
 MINIMIZE = $(NODE_BINDIR)/minimize
 
-JS_LIBS = react
+JS_LIBS = react react-router
 
 APP_DIR = app
 DIST_DIR = dist
