@@ -23,6 +23,9 @@ DIST_DIR = dist
 BUILD_DIR = build
 DEPFILES = package.json
 
+APP_JS_FILES = $(shell find $(APP_DIR) -name '*.js' -o -name '*.jsx')
+APP_CSS_FILES = $(shell find $(APP_DIR) -name '*.css' -o -name '*.scss')
+
 default: build
 
 install-deps:
@@ -56,7 +59,7 @@ $(DIST_DIR)/%.css: $(BUILD_DIR)/%.css $(DEPFILES)
 	$(CLEANCSS) $< --output $@ \
 	    --source-map --source-map-inline-sources
 
-$(BUILD_DIR)/app.js: $(APP_DIR)/main.js $(wildcard $(APP_DIR)/*.js) $(wildcard $(APP_DIR)/*.jsx) $(DEPFILES)
+$(BUILD_DIR)/app.js: $(APP_DIR)/main.js $(APP_JS_FILES) $(DEPFILES)
 	$(BROWSERIFY) --entry $< --debug --transform reactify \
 	    $(addprefix --external=,$(JS_LIBS)) \
 	    | $(EXORCIST) $(EXORCIST_OPTIONS) $@.map \
@@ -68,7 +71,7 @@ $(BUILD_DIR)/vendor.js: $(DEPFILES)
 	    | $(EXORCIST) $(EXORCIST_OPTIONS) $@.map \
 	    > $@
 
-$(BUILD_DIR)/app.css: $(APP_DIR)/scss/styles.scss $(wildcard $(APP_DIR)/scss/_*.scss) $(DEPFILES)
+$(BUILD_DIR)/app.css: $(APP_DIR)/scss/styles.scss $(APP_CSS_FILES) $(DEPFILES)
 	$(SASS) --source-map $@.map --source-map-embed --source-map-contents $< \
 	    | $(EXORCIST) $(EXORCIST_OPTIONS) $@.map \
 	    | sed '/sourceMappingURL/q' \
