@@ -11,11 +11,26 @@ var AccountBlock = React.createClass({
   mixins: [Reflux.connect(accountStore, "account")],
 
   render: function() {
-    return (
-      <div>
-        <span>Login: {this.state.account.name}</span>
-      </div>
-    );
+    if (this.state.account.username) {
+      // Logged in
+      return (
+        <div>
+          <span>Login: {this.state.account.name} [{this.state.account.username}]</span>
+        </div>
+      );
+    } else if (this.state.account.loading) {
+      return (
+        <div>
+          <span>[ Loading account ... ]</span>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <a href="#">Login</a>
+        </div>
+      );
+    }
   }
 });
 
