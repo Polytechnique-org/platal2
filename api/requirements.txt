@@ -2,5 +2,6 @@ Django>=1.7
 pytz
 mysqlclient
 djangorestframework
+django-cors-headers
 
 getconf
