@@ -69,7 +69,7 @@ $(DIST_DIR)/%.css: $(BUILD_DIR)/%.css $(DEPFILES)
 	$(CLEANCSS) $< --output $@ \
 	    --source-map --source-map-inline-sources
 
-$(BUILD_DIR)/app.js: $(APP_DIR)/main.js $(APP_JS_FILES) $(DEPFILES)
+$(BUILD_DIR)/app.js: $(APP_DIR)/main.jsx $(APP_JS_FILES) $(DEPFILES)
 	$(BROWSERIFY) --entry $< --debug --transform reactify \
 	    $(addprefix --external=,$(JS_LIBS)) \
 	    | $(EXORCIST) $(EXORCIST_OPTIONS) $@.map \
