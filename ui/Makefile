@@ -8,6 +8,7 @@ BROWSERIFY = $(NODE_BINDIR)/browserify
 UGLIFY = $(NODE_BINDIR)/uglifyjs
 EXORCIST = $(NODE_BINDIR)/exorcist
 EXORCIST_OPTIONS = --base $(abspath .)
+JSXHINT = $(NODE_BINDIR)/jsxhint
 
 # CSS toolchain: node-sass compiles, cleancss minifies
 SASS = $(NODE_BINDIR)/node-sass
@@ -37,6 +38,15 @@ clean:
 .PHONY: default install-deps clean
 
 
+# QUALITY
+# =======
+
+lint: jshint
+
+jshint: $(APP_JS_FILES)
+	$(JSXHINT) --jsx-only $^
+
+
 # BUILDING
 # ========
 
@@ -44,7 +54,7 @@ build: build-vendorjs build-appjs build-appcss build-html
 
 build-vendorjs: $(DIST_DIR)/vendor.js
 
-build-appjs: $(DIST_DIR)/app.js
+build-appjs: lint $(DIST_DIR)/app.js
 
 build-appcss: $(DIST_DIR)/app.css
 
