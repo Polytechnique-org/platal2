@@ -4,9 +4,9 @@
  */
 
 var Reflux = require('reflux');
-var request = require('superagent-bluebird-promise');
 
 var AccountActions = require('../actions.js');
+var PlatalAPI = require('../api.js');
 
 var accountStore = Reflux.createStore({
   listenables: AccountActions,
@@ -22,10 +22,7 @@ var accountStore = Reflux.createStore({
   },
 
   onFetchAccount: function() {
-    request
-      .get('http://platal2-demo.polytechnique.org/api/accounts/me')
-      .set('Accept', 'application/json')
-      .withCredentials()
+    PlatalAPI.get('accounts/me')
       .then(function(res) {
           AccountActions.fetchAccount.completed({error: null, username: res.body.hruid, name: res.body.full_name, loading: false});
         }, function(error) {
