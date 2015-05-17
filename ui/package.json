@@ -17,9 +17,11 @@
     "uglify-js": "~2.4.21"
   },
   "dependencies": {
+    "bluebird": "~2.9.25",
     "react": "~0.13.3",
     "react-router": "~0.13.3",
     "reflux": "~0.2.7",
-    "superagent": "~1.2.0"
+    "superagent": "~1.2.0",
+    "superagent-bluebird-promise": "~2.0.2"
   }
 }

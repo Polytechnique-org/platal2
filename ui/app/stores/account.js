@@ -4,7 +4,7 @@
  */
 
 var Reflux = require('reflux');
-var request = require('superagent');
+var request = require('superagent-bluebird-promise');
 
 var AccountActions = require('../actions.js');
 
@@ -17,13 +17,12 @@ var loadAccount = function() {
     .get('http://platal2-demo.polytechnique.org/api/accounts/me')
     .set('Accept', 'application/json')
     .withCredentials()
-    .end(function(err, res) {
-      if (res && res.ok) {
+    .then(function(res) {
         AccountActions.fetchAccount({username: res.body.hruid, name: res.body.full_name, loading: false});
-      } else {
-        AccountActions.fetchAccount({username: '', name: "" + err, loading: false});
+      }, function(error) {
+        AccountActions.fetchAccount({username: '', name: "" + error, loading: false});
       }
-    });
+    );
 }
 
 var accountStore = Reflux.createStore({
