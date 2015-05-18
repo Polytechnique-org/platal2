@@ -9,13 +9,15 @@ var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 
 // Views
-var MainView = require('./views/main.jsx');
+var AppView = require('./views/app.jsx');
 var HomeView = require('./views/home.jsx');
 var InfoView = require('./views/info.jsx');
+var QuickSearchView = require('./views/quicksearch.jsx');
 
 var routes = (
-    <Route name="app" path="/" handler={MainView}>
+    <Route name="app" path="/" handler={AppView}>
       <Route name="info" handler={InfoView}/>
+      <Route name="search" handler={QuickSearchView}/>
       <DefaultRoute name="home" handler={HomeView}/>
     </Route>
 );

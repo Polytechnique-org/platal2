@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Reflux = require('reflux');
 var Router = require('react-router');
@@ -34,21 +36,24 @@ var AccountBlock = React.createClass({
   }
 });
 
-var MainView = React.createClass({
+var AppView = React.createClass({
   render: function() {
     return (
       <div>
-        <AccountBlock />
         <header>
           <ul>
-            <li><Link to="app">Home</Link></li>
+            <li><Link to="home">Home</Link></li>
+            <li><Link to="search">Search</Link></li>
             <li><Link to="info">Info</Link></li>
+            <li><AccountBlock /></li>
           </ul>
         </header>
+        <div className="content">
         <RouteHandler/>
+        </div>
       </div>
     );
   }
 });
 
-module.exports = MainView;
+module.exports = AppView;

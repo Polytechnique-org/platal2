@@ -5,7 +5,7 @@
 
 var Reflux = require('reflux');
 
-var AccountActions = require('../actions.js');
+var AccountActions = require('../actions.js').AccountActions;
 var PlatalAPI = require('../api.js');
 
 var accountStore = Reflux.createStore({
