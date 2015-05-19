@@ -54,7 +54,7 @@ build: build-vendorjs build-appjs build-appcss build-html
 
 build-vendorjs: $(DIST_DIR)/vendor.js
 
-build-appjs: lint $(DIST_DIR)/app.js
+build-appjs: $(DIST_DIR)/app.js
 
 build-appcss: $(DIST_DIR)/app.css
 
