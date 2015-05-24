@@ -2,7 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 
-class AccountTypes(models.Model):
+class AccountType(models.Model):
     type = models.CharField(primary_key=True, max_length=16)
     perms = models.CharField(max_length=124)
     description = models.TextField(blank=True)
@@ -15,7 +15,7 @@ class AccountTypes(models.Model):
         return self.type
 
 
-class EmailVirtualDomains(models.Model):
+class EmailVirtualDomain(models.Model):
     name = models.CharField(max_length=255)
     aliasing = models.ForeignKey('self', db_column='aliasing')
 
@@ -36,7 +36,7 @@ class Account(models.Model):
     token = models.CharField(max_length=32, blank=True)
     weak_password = models.CharField(max_length=256, blank=True)
 
-    type = models.ForeignKey(AccountTypes, db_column='type', blank=True, null=True)
+    type = models.ForeignKey(AccountType, db_column='type', blank=True, null=True)
 
     user_perms = models.CharField(max_length=96, blank=True)
     is_admin = models.IntegerField(blank=True, null=True)
@@ -53,7 +53,7 @@ class Account(models.Model):
     display_name = models.CharField(max_length=255, blank=True)
 
     email = models.CharField(max_length=255, blank=True)
-    best_domain = models.ForeignKey('EmailVirtualDomains', db_column='best_domain', blank=True, null=True)
+    best_domain = models.ForeignKey('EmailVirtualDomain', db_column='best_domain', blank=True, null=True)
     from_email = models.CharField(max_length=255)
     from_format = models.CharField(max_length=4)
 
