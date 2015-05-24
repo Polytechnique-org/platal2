@@ -42,6 +42,8 @@ INSTALLED_APPS = (
 
     'platal.auth',
     'platal.profiles',
+    'platal.utils',
+
     'corsheaders',
     'rest_framework',
 )
