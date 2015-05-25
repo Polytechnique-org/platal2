@@ -16,21 +16,15 @@ var AccountBlock = React.createClass({
     if (this.state.account.username) {
       // Logged in
       return (
-        <div>
-          <span>Login: {this.state.account.name} [{this.state.account.username}]</span>
-        </div>
+        <span>Login: {this.state.account.name}</span>
       );
     } else if (this.state.account.loading) {
       return (
-        <div>
-          <span>[ Loading account ... ]</span>
-        </div>
+        <span>[ Loading account ... ]</span>
       );
     } else {
       return (
-        <div>
-          <a href="#">Login</a>
-        </div>
+        <a href="#">Login</a>
       );
     }
   }
@@ -40,16 +34,22 @@ var AppView = React.createClass({
   render: function() {
     return (
       <div>
-        <header>
-          <ul>
-            <li><Link to="home">Home</Link></li>
-            <li><Link to="search">Search</Link></li>
-            <li><Link to="info">Info</Link></li>
-            <li><AccountBlock /></li>
-          </ul>
-        </header>
-        <div className="content">
-        <RouteHandler/>
+        <nav className="light-blue lighten-2">
+          <div className="nav-wrapper container">
+            <ul>
+              <li><Link to="home">Home</Link></li>
+              <li><Link to="search">Search</Link></li>
+              <li><Link to="info">Info</Link></li>
+              <li className="right"><AccountBlock /></li>
+            </ul>
+          </div>
+        </nav>
+        <div className="section container">
+          <div className="row">
+            <div className="content col s10 offset-s1">
+              <RouteHandler/>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -7,6 +7,26 @@ var Navigation = require('react-router').Navigation;
 var quickSearchStore = require('../stores/quicksearch');
 var QuickSearchActions = require('../actions.js').QuickSearchActions;
 
+var ProfileLine = React.createClass({
+  render: function() {
+    var profile = this.props.profile;
+    if (profile.photo) {
+      var photo = (
+        <img src={profile.photo.raw_url} className='circle' />
+      );
+    } else {
+      var photo = '';
+    }
+    return (
+      <li className='collection-item avatar'>
+        {photo}
+        <span className="title">{profile.public_name}</span>
+        <p>{profile.promo}</p>
+      </li>
+    );
+  }
+});
+
 var QuickSearchView = React.createClass({
   mixins: [
     Reflux.connect(quickSearchStore, "results"),
@@ -48,28 +68,40 @@ var QuickSearchView = React.createClass({
   render: function() {
     var rows = [];
     var results = this.state.results[this.state.query.trim()];
+    var loader = '';
     if (results) {
       results.forEach(function(profile) {
         rows.push(
-          <tr key={profile.hrpid}>
-            <td>{profile.public_name}</td>
-          </tr>
+          <ProfileLine key={profile.hrpid} profile={profile} />
         );
       });
+    } else if (this.state.query.trim()) {
+      // Request sent, no response yet
+      loader = (
+        <div className="progress">
+          <div className="indeterminate"></div>
+        </div>
+      );
     }
 
     return (
-      <div className="quicksearch">
-        <form>
-          <input type="text" ref="quicksearchQuery" value={this.state.query} onChange={this.doSearch} />
-        </form>
-        <div className="quicksearch-result">
-          <table>
-            <thead>
-              <tr><th>Name</th></tr>
-            </thead>
-            <tbody>{rows}</tbody>
-          </table>
+      <div>
+        <div className="quicksearch row">
+          <form>
+            <div className="input-field col s6">
+              <input type="search" id="search" ref="quicksearchQuery" value={this.state.query} onChange={this.doSearch} />
+              <label htmlFor='search'>Search:</label>
+            </div>
+          </form>
+        </div>
+        <div className="row">
+          <div className="quicksearch-result">
+            <h5>Results</h5>
+            {loader}
+            <ul className="collection">
+              {rows}
+            </ul>
+          </div>
         </div>
       </div>
     );

@@ -12,5 +12,5 @@ PlatalAPI.configure({rootUrl: 'http://platal2-demo.polytechnique.org/api/'});
 var routes = require('./routes.jsx');
 
 Router.run(routes, Router.HistoryLocation, function(Handler) {
-  React.render(<Handler/>, document.getElementById('content'));
+  React.render(<Handler/>, document.getElementById('app-content'));
 });

@@ -18,6 +18,7 @@ CLEANCSS = $(NODE_BINDIR)/cleancss
 MINIMIZE = $(NODE_BINDIR)/minimize
 
 JS_LIBS = react react-router reflux superagent-bluebird-promise
+MATERIALIZE_DIR = $(abspath ./node_modules/materialize-css)
 
 APP_DIR = app
 DIST_DIR = dist
@@ -50,15 +51,7 @@ jshint: $(APP_JS_FILES)
 # BUILDING
 # ========
 
-build: build-vendorjs build-appjs build-appcss build-html
-
-build-vendorjs: $(DIST_DIR)/vendor.js
-
-build-appjs: $(DIST_DIR)/app.js
-
-build-appcss: $(DIST_DIR)/app.css
-
-build-html: $(DIST_DIR)/index.html
+build: $(DIST_DIR)/vendor.js $(DIST_DIR)/app.js $(DIST_DIR)/vendor.css $(DIST_DIR)/app.css $(DIST_DIR)/index.html
 
 $(DIST_DIR)/%.js: $(BUILD_DIR)/%.js $(DEPFILES)
 	$(UGLIFY) $< --output $@ \
@@ -86,6 +79,9 @@ $(BUILD_DIR)/app.css: $(APP_DIR)/scss/styles.scss $(APP_CSS_FILES) $(DEPFILES)
 	    | $(EXORCIST) $(EXORCIST_OPTIONS) $@.map \
 	    | sed '/sourceMappingURL/q' \
 	    > $@
+
+$(BUILD_DIR)/vendor.css: $(DEPFILES)
+	cat $(MATERIALIZE_DIR)/bin/materialize.css > $@
 
 $(DIST_DIR)/%.html: $(APP_DIR)/%.html $(DEPFILES)
 	$(MINIMIZE) --output $@ $<
