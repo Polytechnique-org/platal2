@@ -4,7 +4,9 @@ var React = require('react');
 var Reflux = require('reflux');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
-var Link = Router.Link;
+
+var XorgHeader = require('./xorg_header.jsx');
+var XorgFooter = require('./xorg_footer.jsx');
 
 var accountStore = require('../stores/account');
 
@@ -40,17 +42,22 @@ var AppView = React.createClass({
   render: function() {
     return (
       <div>
+      <header id="XorgHeader">
+        <XorgHeader/>
+      </header>
+
+      <main id="Main">
         <header>
-          <ul>
-            <li><Link to="home">Home</Link></li>
-            <li><Link to="search">Search</Link></li>
-            <li><Link to="info">Info</Link></li>
-            <li><AccountBlock /></li>
-          </ul>
+          <li><AccountBlock /></li>
         </header>
         <div className="content">
         <RouteHandler/>
         </div>
+      </main>
+
+      <footer id="XorgFooter">
+        <XorgFooter/>
+      </footer>
       </div>
     );
   }

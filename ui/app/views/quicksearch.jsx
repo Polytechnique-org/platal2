@@ -61,7 +61,7 @@ var QuickSearchView = React.createClass({
     return (
       <div className="quicksearch">
         <form>
-          <input type="text" ref="quicksearchQuery" value={this.state.query} onChange={this.doSearch} />
+          <input type="text" ref="quicksearchQuery" value={this.state.query} onChange={this.doSearch} placeholder="Recherche dans l'annuaire"/>
         </form>
         <div className="quicksearch-result">
           <table>
