@@ -22,7 +22,7 @@ var accountStore = Reflux.createStore({
   },
 
   onFetchAccount: function() {
-    PlatalAPI.get('accounts/me')
+    PlatalAPI.get('accounts/me/')
       .then(function(res) {
           AccountActions.fetchAccount.completed({error: null, username: res.body.hruid, name: res.body.full_name, loading: false});
         }, function(error) {
