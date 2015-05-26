@@ -7,6 +7,7 @@ var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 var mui = require('material-ui');
 var ThemeManager = require('material-ui/lib/styles/theme-manager')();
+var Spacing = mui.Styles.Spacing;
 
 var accountStore = require('../stores/account');
 
@@ -55,21 +56,47 @@ var AppView = React.createClass({
     this.transitionTo(payload.route);
   },
 
+  getStyles: function() {
+    var navWidth = Spacing.desktopKeylineIncrement * 3 + 'px';
+    var topHeight = Spacing.desktopKeylineIncrement + 'px';
+    var styles = {
+      root: {
+        paddingTop: topHeight,
+        position: 'relative'
+      },
+      nav: {
+        position: 'absolute',
+        top: topHeight,
+        width: navWidth
+      },
+      content: {
+        marginLeft: navWidth,
+        padding: Spacing.desktopGutter + 'px',
+        minHeight: '800px'
+      }
+    };
+    return styles;
+  },
+
   render: function() {
     var menuItems = [
       {route: 'home', text: "Home"},
       {route: 'search', text: "Search"},
       {route: 'info', text: "Info"}
     ];
+    var styles = this.getStyles();
+
     return (
       <mui.AppCanvas predefinedLayout={1}>
-        <mui.AppBar title="Demo" zDepth={0} />
-        <mui.LeftNav menuItems={menuItems} onChange={this.onNavChange} />
-        <mui.ClearFix>
-          <div>
+        <mui.AppBar title="Demo" zDepth={0} showMenuIconButton={false} />
+        <div style={styles.root}>
+          <div style={styles.content}>
             <RouteHandler/>
           </div>
-        </mui.ClearFix>
+          <div style={styles.nav}>
+            <mui.Menu menuItems={menuItems} onItemClick={this.onNavChange} />
+          </div>
+        </div>
       </mui.AppCanvas>
     );
   }
