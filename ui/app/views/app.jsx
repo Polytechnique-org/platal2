@@ -5,6 +5,8 @@ var Reflux = require('reflux');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
+var mui = require('material-ui');
+var ThemeManager = require('material-ui/lib/styles/theme-manager')();
 
 var accountStore = require('../stores/account');
 
@@ -37,21 +39,38 @@ var AccountBlock = React.createClass({
 });
 
 var AppView = React.createClass({
+  mixins: [Router.Navigation],
+
+  childContextTypes: {
+    muiTheme: React.PropTypes.object
+  },
+
+  getChildContext: function() {
+    return {
+      muiTheme: ThemeManager.getCurrentTheme()
+    };
+  },
+
+  onNavChange: function(e, key, payload) {
+    this.transitionTo(payload.route);
+  },
+
   render: function() {
+    var menuItems = [
+      {route: 'home', text: "Home"},
+      {route: 'search', text: "Search"},
+      {route: 'info', text: "Info"}
+    ];
     return (
-      <div>
-        <header>
-          <ul>
-            <li><Link to="home">Home</Link></li>
-            <li><Link to="search">Search</Link></li>
-            <li><Link to="info">Info</Link></li>
-            <li><AccountBlock /></li>
-          </ul>
-        </header>
-        <div className="content">
-        <RouteHandler/>
-        </div>
-      </div>
+      <mui.AppCanvas predefinedLayout={1}>
+        <mui.AppBar title="Demo" zDepth={0} />
+        <mui.LeftNav menuItems={menuItems} onChange={this.onNavChange} />
+        <mui.ClearFix>
+          <div>
+            <RouteHandler/>
+          </div>
+        </mui.ClearFix>
+      </mui.AppCanvas>
     );
   }
 });
