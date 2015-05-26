@@ -1,0 +1,28 @@
+{
+  "name": "platal2-front",
+  "version": "0.0.1",
+  "description": "Plat/Al 2 front-end app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Polytechnique.org dev team",
+  "license": "GPLv3",
+  "devDependencies": {
+    "browserify": "~10.2.0",
+    "clean-css": "~3.2.10",
+    "exorcist": "~0.4.0",
+    "jsxhint": "~0.15.0",
+    "minimize": "~1.4.1",
+    "node-sass": "~3.1.1",
+    "reactify": "~1.1.1",
+    "uglify-js": "~2.4.21"
+  },
+  "dependencies": {
+    "bluebird": "~2.9.25",
+    "react": "~0.13.3",
+    "react-router": "~0.13.3",
+    "reflux": "~0.2.7",
+    "superagent": "~1.2.0",
+    "superagent-bluebird-promise": "~2.0.2"
+  }
+}

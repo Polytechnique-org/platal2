@@ -42,6 +42,9 @@ INSTALLED_APPS = (
 
     'platal.auth',
     'platal.profiles',
+    'platal.utils',
+
+    'corsheaders',
     'rest_framework',
 )
 
@@ -51,6 +54,7 @@ AUTHENTICATION_BACKENDS = [
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -100,6 +104,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Enabled Cross-Origin requests from http://localhost:8000/.
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+)
+# Tell the browser he is allowed to send cookies.
+# FIXME(rbarrois): This should disappear once we use tokens.
+CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
