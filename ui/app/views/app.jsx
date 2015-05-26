@@ -86,6 +86,14 @@ var AppView = React.createClass({
     ];
     var styles = this.getStyles();
 
+    var currentItem = null;
+    for (var i = menuItems.length - 1; i >= 0; i--) {
+      if (this.context.router.isActive(menuItems[i].route)) {
+        currentItem = i;
+        break;
+      }
+    }
+
     return (
       <mui.AppCanvas predefinedLayout={1}>
         <mui.AppBar title="Demo" zDepth={0} showMenuIconButton={false} />
@@ -94,7 +102,11 @@ var AppView = React.createClass({
             <RouteHandler/>
           </div>
           <div style={styles.nav}>
-            <mui.Menu menuItems={menuItems} onItemClick={this.onNavChange} />
+            <mui.Menu
+              menuItems={menuItems}
+              selectedIndex={currentItem}
+              onItemClick={this.onNavChange}
+              />
           </div>
         </div>
       </mui.AppCanvas>
