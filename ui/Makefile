@@ -17,7 +17,7 @@ CLEANCSS = $(NODE_BINDIR)/cleancss
 # HTML toolchain
 MINIMIZE = $(NODE_BINDIR)/minimize
 
-JS_LIBS = react react-router reflux superagent-bluebird-promise
+JS_LIBS = material-ui react react-router reflux superagent-bluebird-promise
 
 APP_DIR = app
 DIST_DIR = dist
