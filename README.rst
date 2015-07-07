@@ -34,7 +34,7 @@ For the API:
     * Install Python3.4
     * Create a virtualenv: ``pyvenv ~/dev/venvs/platal2``
     * Enter it: ``. ~/dev/venvs/platal2``
-    * Install requirements: ``cd api; pip install -r requirements.txt``
+    * Install requirements: ``cd api; make install-deps``
     * Adapt ``example_settings.ini`` into a ``local_settings.ini`` suitable to access the production database
     * Setup the Django part: ``./manage.py syncdb``
     * Start it up! ``./manage.py runserver``
@@ -42,7 +42,7 @@ For the API:
 For the UI:
     * Install nodejs
     * Enter the UI directory: ``cd ui``
-    * Install the dependencies: ``make update``
+    * Install the dependencies: ``make install-deps``
     * Compile the project: ``make build``
     * Run the UI: ``make runserver``
     * In order for the UI to be able to fetch data, open https://platal2-demo.polytechnique.org/auth/login/?next=/api/ and login there
