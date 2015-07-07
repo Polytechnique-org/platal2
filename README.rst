@@ -40,7 +40,12 @@ For the API:
     * Start it up! ``./manage.py runserver``
 
 For the UI:
-    * Use npm, bower, or something.
+    * Install nodejs
+    * Enter the UI directory: ``cd ui``
+    * Install the dependencies: ``make update``
+    * Compile the project: ``make build``
+    * Run the UI: ``make runserver``
+    * In order for the UI to be able to fetch data, open https://platal2-demo.polytechnique.org/auth/login/?next=/api/ and login there
 
 
 License
