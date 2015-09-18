@@ -8,23 +8,23 @@
   "author": "Polytechnique.org dev team",
   "license": "GPLv3",
   "devDependencies": {
-    "browserify": "~10.2.0",
-    "clean-css": "~3.2.10",
+    "browserify": "~11.1.0",
+    "clean-css": "~3.4.3",
     "exorcist": "~0.4.0",
     "jsxhint": "~0.15.0",
-    "minimize": "~1.4.1",
-    "node-sass": "~3.1.1",
+    "minimize": "~1.7.1",
+    "node-sass": "~3.3.3",
     "reactify": "~1.1.1",
-    "uglify-js": "~2.4.21"
+    "uglify-js": "~2.4.24"
   },
   "dependencies": {
-    "bluebird": "~2.9.25",
+    "bluebird": "~2.10.0",
     "material-ui": "~0.8.0",
     "react": "~0.13.3",
     "react-router": "~0.13.3",
     "react-tap-event-plugin": "~0.1.7",
-    "reflux": "~0.2.7",
-    "superagent": "~1.2.0",
-    "superagent-bluebird-promise": "~2.0.2"
+    "reflux": "~0.2.12",
+    "superagent": "~1.4.0",
+    "superagent-bluebird-promise": "~2.1.0"
   }
 }
