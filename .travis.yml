@@ -1,0 +1,15 @@
+language: python
+
+python:
+ - "3.4"
+
+install:
+ - pip install -r backend/requirements.txt
+
+script:
+ - cd backend
+ - python manage.py test
+
+branches:
+  only:
+    - master

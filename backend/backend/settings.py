@@ -75,8 +75,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'platal1': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'x5dat',
+        'ENGINE': 'django.db.backends.' + CONFIG.get('plataldb.engine', 'sqlite3'),
+        'NAME': CONFIG.get('plataldb.name', 'x5dat'),
         'USER': CONFIG.get('plataldb.user', 'web'),
         'PASSWORD': CONFIG.get('plataldb.password'),
     },
