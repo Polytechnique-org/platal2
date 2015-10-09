@@ -88,7 +88,7 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
 class ProfileSearchBackend(filters.BaseFilterBackend):
 
     def filter_queryset(self, request, queryset, view):
-        search = request.QUERY_PARAMS.get('search', None)
+        search = request.query_params.get('search', None)
         if search:
             queryset = psearch.filter_profiles(queryset, search)
         return queryset

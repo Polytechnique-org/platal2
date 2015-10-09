@@ -75,7 +75,7 @@ class ProfilePublicName(models.Model):
 class ProfilePhoto(models.Model):
     profile = models.OneToOneField('Profile', db_column='pid', primary_key=True, related_name='photo')
     attachmime = models.CharField(max_length=4)
-    attach = models.TextField()
+    attach = models.BinaryField()
     x = models.IntegerField()
     y = models.IntegerField()
     pub = models.CharField(max_length=7)
