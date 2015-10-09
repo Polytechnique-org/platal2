@@ -61,9 +61,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'platal.urls'
+ROOT_URLCONF = 'backend.urls'
 
-WSGI_APPLICATION = 'platal.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
@@ -81,7 +81,7 @@ DATABASES = {
         'PASSWORD': CONFIG.get('plataldb.password'),
     },
 }
-DATABASE_ROUTERS = ['platal.dbrouter.SimpleRouter']
+DATABASE_ROUTERS = ['backend.dbrouter.SimpleRouter']
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
