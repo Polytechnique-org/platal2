@@ -22,7 +22,7 @@ The final design should be built around the following components:
 Code layout
 -----------
 
-* ``api/`` contains the backend project
+* ``backend/`` contains the backend project
 * ``ui/`` contains the JS parts
 * ``docs/`` include the documentation, built using Sphinx.
 
@@ -34,7 +34,7 @@ For the API:
     * Install Python3.4
     * Create a virtualenv: ``pyvenv ~/dev/venvs/platal2``
     * Enter it: ``. ~/dev/venvs/platal2``
-    * Install requirements: ``cd api; make install-deps``
+    * Install requirements: ``cd backend; make install-deps``
     * Adapt ``example_settings.ini`` into a ``local_settings.ini`` suitable to access the production database
     * Setup the Django part: ``./manage.py syncdb``
     * Start it up! ``./manage.py runserver``
