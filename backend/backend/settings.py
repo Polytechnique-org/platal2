@@ -79,6 +79,8 @@ DATABASES = {
         'NAME': CONFIG.get('plataldb.name', 'x5dat'),
         'USER': CONFIG.get('plataldb.user', 'web'),
         'PASSWORD': CONFIG.get('plataldb.password'),
+        'HOST': CONFIG.get('plataldb.host', '127.0.0.1'),
+        'PORT': CONFIG.get('plataldb.port', '3306'),
     },
 }
 DATABASE_ROUTERS = ['backend.dbrouter.SimpleRouter']
