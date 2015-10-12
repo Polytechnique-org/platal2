@@ -20,7 +20,7 @@ class SimpleRouter(object):
             return True
         return None
 
-    def allow_syncdb(self, db, model):
+    def allow_migrate(self, db, model):
         if db == 'platal1' or self._is_platal1_model(model):
             return False
         return None
