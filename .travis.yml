@@ -33,3 +33,4 @@ notifications:
     on_failure: always
     template:
       - "%{repository} : %{message} ( %{build_url} )"
+    skip_join: true
