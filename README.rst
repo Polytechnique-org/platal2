@@ -1,3 +1,8 @@
+.. image:: https://travis-ci.org/Polytechnique-org/platal2.svg?branch=master
+    :target: https://travis-ci.org/Polytechnique-org/platal2
+.. image:: https://coveralls.io/repos/Polytechnique-org/platal2/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/Polytechnique-org/platal2?branch=master
+
 platal2
 =======
 
