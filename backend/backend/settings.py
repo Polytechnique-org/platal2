@@ -83,6 +83,10 @@ DATABASES = {
         'PORT': CONFIG.get('plataldb.port', '3306'),
     },
 }
+
+# Do not manage MySQL databases but manage SQLite ones for tests and local development
+PLATAL_MANAGED = (DATABASES['platal1']['ENGINE'] == 'django.db.backends.sqlite3')
+
 DATABASE_ROUTERS = ['backend.dbrouter.SimpleRouter']
 
 # Internationalization

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
@@ -8,7 +9,7 @@ class AccountTypes(models.Model):
     description = models.TextField(blank=True)
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'account_types'
 
     def __str__(self):
@@ -20,7 +21,7 @@ class EmailVirtualDomains(models.Model):
     aliasing = models.ForeignKey('self', db_column='aliasing')
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'email_virtual_domains'
 
     def __str__(self):
@@ -65,7 +66,7 @@ class Account(models.Model):
     last_version = models.CharField(max_length=16)
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'accounts'
 
     def __str__(self):

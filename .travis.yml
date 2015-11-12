@@ -20,7 +20,7 @@ install:
 
 script:
  - cd backend
- - coverage run --source='backend/' --omit='backend/wsgi.py' manage.py test
+ - coverage run --source='backend/' --omit='backend/wsgi.py' manage.py test backend platal
 
 after_success: coveralls
 

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 class AccountProfileLink(models.Model):
@@ -6,7 +7,7 @@ class AccountProfileLink(models.Model):
     perms = models.CharField(max_length=5)
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'account_profiles'
 
 
@@ -46,7 +47,7 @@ class Profile(models.Model):
     alias_pub = models.CharField(max_length=7)
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'profiles'
 
     def __str__(self):
@@ -65,7 +66,7 @@ class ProfilePublicName(models.Model):
     pseudonym = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'profile_public_names'
 
     def __str__(self):
@@ -82,7 +83,7 @@ class ProfilePhoto(models.Model):
     last_update = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'profile_photos'
 
     def __str__(self):
@@ -100,7 +101,7 @@ class ProfileDisplay(models.Model):
     promo = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        managed = settings.PLATAL_MANAGED
         db_table = 'profile_display'
 
     def __str__(self):
