@@ -1,4 +1,6 @@
 # coding: utf-8
+from django.conf import settings
+
 
 class SimpleRouter(object):
 
@@ -21,7 +23,10 @@ class SimpleRouter(object):
         return None
 
     def allow_migrate(self, db, model):
-        if db == 'platal1' or self._is_platal1_model(model):
-            return False
-        return None
-
+        if db == 'platal1':
+            if self._is_platal1_model(model):
+                return settings.PLATAL_MANAGED
+            else:
+                return False
+        else:
+            return not self._is_platal1_model(model)
