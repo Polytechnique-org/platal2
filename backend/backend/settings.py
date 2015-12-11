@@ -87,6 +87,9 @@ DATABASES = {
 # Do not manage MySQL databases but manage SQLite ones for tests and local development
 PLATAL_MANAGED = (DATABASES['platal1']['ENGINE'] == 'django.db.backends.sqlite3')
 
+if PLATAL_MANAGED:
+    INSTALLED_APPS += ('backend.test',)
+
 DATABASE_ROUTERS = ['backend.dbrouter.SimpleRouter']
 
 # Internationalization
