@@ -2,6 +2,10 @@ PYTHON ?= python
 
 all:
 
+migrate:
+	$(PYTHON) manage.py migrate
+	$(PYTHON) manage.py migrate --database=platal1
+
 test:
 	$(PYTHON) manage.py test backend platal
 
