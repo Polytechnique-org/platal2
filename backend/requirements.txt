@@ -5,3 +5,5 @@ djangorestframework
 django-cors-headers
 
 getconf
+
+factory_boy>=2.6,<3.0.0
