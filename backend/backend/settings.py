@@ -89,6 +89,11 @@ PLATAL_MANAGED = (DATABASES['platal1']['ENGINE'] == 'django.db.backends.sqlite3'
 
 if PLATAL_MANAGED:
     INSTALLED_APPS += ('backend.test',)
+    TEST_USER = {
+        'firstname': 'Test',
+        'lastname': 'User',
+        'password': 'password',
+    }
 
 DATABASE_ROUTERS = ['backend.dbrouter.SimpleRouter']
 
