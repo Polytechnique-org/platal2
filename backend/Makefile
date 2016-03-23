@@ -16,4 +16,7 @@ clean:
 install-deps:
 	pip install -r requirements.txt
 
-.PHONY: all test clean install-deps
+populatedb: migrate
+	$(PYTHON) manage.py populatedb
+
+.PHONY: all test clean install-deps migrate populatedb
