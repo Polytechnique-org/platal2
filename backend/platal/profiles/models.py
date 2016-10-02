@@ -9,6 +9,10 @@ class AccountProfileLink(models.Model):
     class Meta:
         managed = settings.PLATAL_MANAGED
         db_table = 'account_profiles'
+        unique_together = (('account', 'profile'),)
+
+    def __str__(self):
+        return '%s -> %s' % (self.account.hruid, self.profile.hrpid)
 
 
 class Profile(models.Model):
@@ -20,7 +24,7 @@ class Profile(models.Model):
     xorg_id = models.IntegerField()
     ax_id = models.CharField(max_length=8, blank=True)
 
-    last_change = models.DateField()
+    last_change = models.DateField(auto_now=True)
 
     birthdate = models.DateField(blank=True, null=True)
     birthdate_ref = models.DateField(blank=True, null=True)

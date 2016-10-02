@@ -5,6 +5,7 @@ from django.db.utils import IntegrityError
 import hashlib
 
 from platal.auth.factories import *
+from platal.profiles.factories import AccountProfileLinkFactory
 from platal.auth.models import Account
 
 class Command(BaseCommand):
@@ -29,4 +30,4 @@ class Command(BaseCommand):
             print("Test user created, hruid is '{}' and password is '{}'".format(user.hruid, settings.TEST_USER['password']))
 
         acc = options['accounts']
-        AccountFactory.create_batch(acc)
+        AccountProfileLinkFactory.create_batch(acc)
