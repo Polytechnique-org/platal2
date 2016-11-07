@@ -14,6 +14,7 @@ install:
 
 script:
  - cd backend
+ - make populatedb
  - coverage run --source='backend/' --omit='backend/wsgi.py' manage.py test backend platal
 
 after_success: coveralls
