@@ -19,7 +19,7 @@ CONFIG = getconf.ConfigGetter('platal', [os.path.join(BASE_DIR, 'local_settings.
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = CONFIG.get('django.secret_key', 'Dev only!!')
+SECRET_KEY = CONFIG.getstr('django.secret_key', 'Dev only!!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,12 +75,12 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'platal1': {
-        'ENGINE': 'django.db.backends.' + CONFIG.get('plataldb.engine', 'sqlite3'),
-        'NAME': CONFIG.get('plataldb.name', 'x5dat'),
-        'USER': CONFIG.get('plataldb.user', 'web'),
-        'PASSWORD': CONFIG.get('plataldb.password'),
-        'HOST': CONFIG.get('plataldb.host', '127.0.0.1'),
-        'PORT': CONFIG.get('plataldb.port', '3306'),
+        'ENGINE': 'django.db.backends.' + CONFIG.getstr('plataldb.engine', 'sqlite3'),
+        'NAME': CONFIG.getstr('plataldb.name', 'x5dat'),
+        'USER': CONFIG.getstr('plataldb.user', 'web'),
+        'PASSWORD': CONFIG.getstr('plataldb.password'),
+        'HOST': CONFIG.getstr('plataldb.host', '127.0.0.1'),
+        'PORT': CONFIG.getstr('plataldb.port', '3306'),
     },
 }
 
