@@ -29,17 +29,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-AUTH_USER_MODEL = 'auth.Account'
+AUTH_USER_MODEL = 'platal_auth.Account'
 
 INSTALLED_APPS = (
     'django.contrib.admin',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'platal.auth',
-    'platal.profiles',
+    'platal.auth.apps.PlatalAuthConfig',
+    'platal.profiles.apps.PlatalProfilesConfig',
     'corsheaders',
     'rest_framework',
 )

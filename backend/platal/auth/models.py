@@ -74,9 +74,10 @@ class Account(models.Model):
 
     # django.contrib.auth compatibility
     USERNAME_FIELD = 'hruid'
+    REQUIRED_FIELDS = []
     is_active = True
-    def is_authenticated(self):
-        return True
+    is_anonymous = False
+    is_authenticated = True
 
     def save(self, *args, **kwargs):
         # Remove the 'last_login' field.

@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 
 class AccountProfileLink(models.Model):
-    account = models.ForeignKey('auth.Account', db_column='uid', related_name='profile_links', primary_key=True)
+    account = models.ForeignKey('platal_auth.Account', db_column='uid', related_name='profile_links', primary_key=True)
     profile = models.ForeignKey('Profile', db_column='pid', related_name='account_links')
     perms = models.CharField(max_length=5)
 
@@ -14,7 +14,7 @@ class AccountProfileLink(models.Model):
 class Profile(models.Model):
     pid = models.AutoField(primary_key=True)
 
-    accounts = models.ManyToManyField('auth.Account', through=AccountProfileLink, related_name='profiles')
+    accounts = models.ManyToManyField('platal_auth.Account', through=AccountProfileLink, related_name='profiles')
 
     hrpid = models.CharField(unique=True, max_length=255)
     xorg_id = models.IntegerField()
