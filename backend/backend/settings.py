@@ -19,29 +19,28 @@ CONFIG = getconf.ConfigGetter('platal', [os.path.join(BASE_DIR, 'local_settings.
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = CONFIG.get('django.secret_key', 'Dev only!!')
+SECRET_KEY = CONFIG.getstr('django.secret_key', 'Dev only!!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
-AUTH_USER_MODEL = 'auth.Account'
+AUTH_USER_MODEL = 'platal_auth.Account'
 
 INSTALLED_APPS = (
     'django.contrib.admin',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'platal.auth',
-    'platal.profiles',
+    'platal.auth.apps.PlatalAuthConfig',
+    'platal.profiles.apps.PlatalProfilesConfig',
     'corsheaders',
     'rest_framework',
 )
@@ -63,6 +62,23 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'backend.urls'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DEBUG': True,
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
@@ -75,12 +91,12 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'platal1': {
-        'ENGINE': 'django.db.backends.' + CONFIG.get('plataldb.engine', 'sqlite3'),
-        'NAME': CONFIG.get('plataldb.name', 'x5dat'),
-        'USER': CONFIG.get('plataldb.user', 'web'),
-        'PASSWORD': CONFIG.get('plataldb.password'),
-        'HOST': CONFIG.get('plataldb.host', '127.0.0.1'),
-        'PORT': CONFIG.get('plataldb.port', '3306'),
+        'ENGINE': 'django.db.backends.' + CONFIG.getstr('plataldb.engine', 'sqlite3'),
+        'NAME': CONFIG.getstr('plataldb.name', 'x5dat'),
+        'USER': CONFIG.getstr('plataldb.user', 'web'),
+        'PASSWORD': CONFIG.getstr('plataldb.password'),
+        'HOST': CONFIG.getstr('plataldb.host', '127.0.0.1'),
+        'PORT': CONFIG.getstr('plataldb.port', '3306'),
     },
 }
 
@@ -96,6 +112,25 @@ if PLATAL_MANAGED:
     }
 
 DATABASE_ROUTERS = ['backend.dbrouter.SimpleRouter']
+
+# Password validation
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

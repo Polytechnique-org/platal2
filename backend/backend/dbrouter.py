@@ -5,12 +5,17 @@ import django.apps
 
 class SimpleRouter(object):
 
-    def _is_platal1_model(self, model):
+    @staticmethod
+    def _is_platal1_app(app_label):
+        appcfg = django.apps.apps.get_app_config(app_label)
+        return appcfg.module.__name__.startswith('platal.')
+
+    @staticmethod
+    def _is_platal1_model(model):
         # Django migrations use __fake__ objects, unrelated to the real module.
         # So find the App which holds the module and find out whether the app
         # lies in the platal namespace.
-        appcfg = django.apps.apps.get_app_config(model._meta.app_label)
-        return appcfg.module.__name__.startswith('platal.')
+        return SimpleRouter._is_platal1_app(model._meta.app_label)
 
     def db_for_read(self, model, **hints):
         if self._is_platal1_model(model):
@@ -27,11 +32,11 @@ class SimpleRouter(object):
             return True
         return None
 
-    def allow_migrate(self, db, model):
+    def allow_migrate(self, db, app_label, model_name=None, **hints):
         if db == 'platal1':
-            if self._is_platal1_model(model):
+            if self._is_platal1_app(app_label):
                 return settings.PLATAL_MANAGED
             else:
                 return False
         else:
-            return not self._is_platal1_model(model)
+            return not self._is_platal1_app(app_label)
